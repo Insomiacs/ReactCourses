@@ -20,7 +20,8 @@
     "build:dev": "cross-env NODE_ENV=development webpack ./src/index.js --output ./dist/main.js",
     "build:prod": "cross-env NODE_ENV=production webpack ./src/index.js --output ./dist/main.js",
     "serve:dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "test": "jest"
+    "test": "jest",
+    "server": "nodemon ./server/index.js"
   },
   "devDependencies": {
     "babel-jest": "^24.3.1",
