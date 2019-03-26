@@ -1,0 +1,28 @@
+.searchTitle {
+  color: #000;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 50px 0 20px 0;
+  display: block;
+}
+.searchCriteria {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+
+  & button {
+    margin: 0 10px;
+  }
+
+}
+
+.criteriaTitle {
+  color: #000000;
+  font-weight: bold;
+}
+.searchButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

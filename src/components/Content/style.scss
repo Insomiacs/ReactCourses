@@ -1,0 +1,16 @@
+.searchInfo {
+  height: 50px;
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+}
+
+.result {
+  font-weight: bold;
+}
+
+.searchContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

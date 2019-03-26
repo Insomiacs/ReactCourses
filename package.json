@@ -31,6 +31,14 @@
     "test": "jest",
     "server": "nodemon ./server/index.js"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileTransformer.js"
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 3 version"
@@ -39,7 +47,9 @@
     "babel-jest": "^24.3.1",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

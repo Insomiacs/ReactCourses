@@ -1,0 +1,25 @@
+.movieItem {
+  width: 350px;
+  margin: 50px 0;
+}
+
+.poster {
+  width: 100%;
+}
+
+.movieInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.movieTitle {
+  display: block;
+  text-transform: uppercase;
+}
+
+.movieGenres {
+  opacity: .5;
+  font-size: 13px;
+  margin-top: 15px;
+}

@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  background: #474747;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 14px;
+  min-width: 80px;
+  border-radius: 2px;
+  padding: 5px 0;
+  outline: none;
+  cursor: pointer;
+
+  &Danger {
+    background: #9b1f12;
+  }
+
+  &Large {
+    width: 200px;
+    height: 40px;
+  }
+}
+
