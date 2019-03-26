@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Preloader from '../Preloader';
-import Wrapper from '../Wrapper';
-import MovieItem from '../MovieItem';
+import Preloader from '../../../SharedComponents/Preloader';
+import Wrapper from '../../../SharedComponents/Wrapper';
+import Movies from '../Movies';
 
 import styles from './style.scss'
 
-class Content extends Component {
+class MoviesContent extends Component {
     state = {
         movies: null
     };
@@ -25,16 +25,8 @@ class Content extends Component {
                     </Wrapper>
                 </div>
                 <Wrapper>
-                    <div className={styles.searchContent}>
-                        { !movies ? <Preloader/> : movies.data.map(item => (
-                            <MovieItem
-                                image={item.poster_path}
-                                title={item.title}
-                                genres={item.genres}
-                                releaseDate={item.release_date}
-                                key={item.id}
-                            />
-                        ))}
+                    <div className={styles.moviesContent}>
+                        { !movies ? <Preloader/> : <Movies movies={movies.data}/>}
                     </div>
                 </Wrapper>
             </div>
@@ -42,4 +34,4 @@ class Content extends Component {
     }
 }
 
-export default Content;
+export default MoviesContent;

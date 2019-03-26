@@ -1,7 +1,7 @@
 import React from 'react';
-import Wrapper from '../Wrapper';
-import Logo from '../Logo';
-import Search from '../Search';
+import Wrapper from '../../../SharedComponents/Wrapper';
+import Logo from '../../../SharedComponents/Logo';
+import SearchBar from '../SearchBar';
 
 import styles from './styles.scss';
 
@@ -12,7 +12,7 @@ const Header = () => {
                 className={styles.headerWrapper}
             >
                 <Logo />
-                <Search/>
+                <SearchBar/>
             </Wrapper>
         </div>
     );

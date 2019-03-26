@@ -1,6 +1,6 @@
 import React from 'react';
-import Wrapper from '../Wrapper';
-import Logo from '../Logo';
+import Wrapper from '../../../SharedComponents/Wrapper';
+import Logo from '../../../SharedComponents/Logo';
 
 import styles from './styles.scss';
 

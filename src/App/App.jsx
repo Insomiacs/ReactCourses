@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Header from '../Header';
-import Content from '../Content';
-import Footer from '../Footer';
+import Header from './components/Header';
+import MoviesContent from './components/MoviesContent';
+import Footer from './components/Footer';
 
 class App extends Component {
     render() {
         return (
             <div>
                 <Header/>
-                <Content/>
+                <MoviesContent/>
                 <Footer/>
             </div>
         );
