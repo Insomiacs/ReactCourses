@@ -12,7 +12,7 @@ const Header = () => {
                 className={styles.headerWrapper}
             >
                 <Logo />
-                <SearchBar/>
+                <SearchBar />
             </Wrapper>
         </div>
     );
