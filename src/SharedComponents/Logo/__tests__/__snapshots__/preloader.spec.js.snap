@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should Logo render correct 1`] = `
+"<Link to=\\"/\\" className=\\"logo\\">
+  netflixroulette
+</Link>"
+`;

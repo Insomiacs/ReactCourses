@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wrapper behavior tests should wrapper render correct 1`] = `
+"<div className=\\"wrapper test-wrapper\\">
+  <span>
+    Some content
+  </span>
+</div>"
+`;
