@@ -10,3 +10,4 @@ export const selectSearchType = (type) => ({
     type: UPDATE_SEARCH_TYPE,
     payload: type
 });
+

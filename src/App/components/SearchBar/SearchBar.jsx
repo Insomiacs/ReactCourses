@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateSearchQuery, selectSearchType } from '../../../redux/actions/search';
+import { updateMovies } from '../../../redux/actions/movies';
+
+import { spy } from 'sinon';
 
 import Input from '../../../SharedComponents/Input';
 import Button from '../../../SharedComponents/Button';
@@ -74,7 +77,7 @@ const mapStateToProps = ({movies, search}) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   updateSearchQuery,
-  selectSearchType
+  selectSearchType,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

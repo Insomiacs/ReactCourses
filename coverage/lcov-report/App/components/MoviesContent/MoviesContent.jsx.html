@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/12</span>
+        <span class='fraction'>9/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,7 +97,8 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,12 +111,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,9 +134,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,13 +162,13 @@ import styles from './style.scss'
 &nbsp;
 class MoviesContent extends Component {
 &nbsp;
-<span class="fstat-no" title="function not covered" >    co</span>mponentDidMount() {
-<span class="cstat-no" title="statement not covered" >        this.props.loadMovies()</span>
+    componentDidMount() {
+        this.props.loadMovies();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    re</span>nder() {
-        const { movies } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-<span class="cstat-no" title="statement not covered" >        return (</span>
+    render() {
+        const { movies } = this.props;
+        return (
             &lt;div&gt;
                 &lt;div className={styles.searchInfo}&gt;
                     &lt;Wrapper&gt;
@@ -183,18 +185,19 @@ class MoviesContent extends Component {
     }
 }
 &nbsp;
-const mapStateToProps = <span class="fstat-no" title="function not covered" >({</span>movies, search}) =&gt; {
-    const titleSearch = <span class="cstat-no" title="statement not covered" >movies.items.filter(<span class="fstat-no" title="function not covered" >mo</span>vie =&gt; <span class="cstat-no" title="statement not covered" >movie.title.toLowerCase().includes(search.searchQuery.toLowerCase()))</span>;</span>
-    const genreSearch = <span class="cstat-no" title="statement not covered" >movies.items.filter(<span class="fstat-no" title="function not covered" >mo</span>vie =&gt; <span class="cstat-no" title="statement not covered" >movie.genres.some(<span class="fstat-no" title="function not covered" >ge</span>nre =&gt; <span class="cstat-no" title="statement not covered" >genre.toLowerCase().includes(search.searchQuery.toLowerCase()))</span>)</span>;</span>
-<span class="cstat-no" title="statement not covered" >    return {</span>
+const mapStateToProps = ({movies, search}) =&gt; {
+    const titleSearch = movies.items.filter(<span class="fstat-no" title="function not covered" >mo</span>vie =&gt; <span class="cstat-no" title="statement not covered" >movie.title.toLowerCase().includes(search.searchQuery.toLowerCase()))</span>;
+    const genreSearch = movies.items.filter(<span class="fstat-no" title="function not covered" >mo</span>vie =&gt; <span class="cstat-no" title="statement not covered" >movie.genres.some(<span class="fstat-no" title="function not covered" >ge</span>nre =&gt; <span class="cstat-no" title="statement not covered" >genre.toLowerCase().includes(search.searchQuery.toLowerCase()))</span>)</span>;
+    return {
         movies: {
             ...movies,
             items: search.type === 'title' ? titleSearch : genreSearch
         },
+        search,
     }
 };
 &nbsp;
-const mapDispatchToProps = <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; <span class="cstat-no" title="statement not covered" >bindActionCreators({</span>
+const mapDispatchToProps = (dispatch) =&gt; bindActionCreators({
     loadMovies
 }, dispatch);
 &nbsp;
@@ -205,7 +208,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(MoviesContent);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 04 2019 00:58:34 GMT+0300 (Moscow Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 07 2019 23:23:10 GMT+0300 (Moscow Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

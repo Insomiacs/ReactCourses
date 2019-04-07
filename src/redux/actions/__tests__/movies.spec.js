@@ -8,9 +8,6 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('load movies action', () => {
-    afterEach(() => {
-        fetchMock.restore()
-    });
 
     const result = {
         "data": [{

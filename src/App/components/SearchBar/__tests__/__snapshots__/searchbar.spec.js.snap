@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchbar behavior test should render correct 1`] = `
+"<Provider store={{...}}>
+  <Connect(SearchBar)>
+    <SearchBar movies={{...}} search={{...}} updateSearchQuery={[Function]} selectSearchType={[Function]}>
+      <div>
+        <span className=\\"searchTitle\\">
+          FIND YOUR MOVIES
+        </span>
+        <Input onChange={[Function]}>
+          <input type=\\"text\\" className=\\"input\\" onChange={[Function: onChange]} />
+        </Input>
+        <div className=\\"searchButtons\\">
+          <div className=\\"searchCriteria\\">
+            <span className=\\"criteriaTitle\\">
+              SEARCH BY
+            </span>
+            <div className=\\"criteriaWrapper\\">
+              <Button onClick={[Function]} type=\\"danger\\">
+                <button className=\\"button buttonDanger\\" onClick={[Function]}>
+                  Title
+                </button>
+              </Button>
+              <Button onClick={[Function]} type=\\"\\">
+                <button className=\\"button\\" onClick={[Function]}>
+                  Genre
+                </button>
+              </Button>
+            </div>
+          </div>
+          <Button type=\\"danger\\" size=\\"large\\" onClick={[Function]}>
+            <button className=\\"button buttonDanger buttonLarge\\" onClick={[Function]}>
+              Search
+            </button>
+          </Button>
+        </div>
+      </div>
+    </SearchBar>
+  </Connect(SearchBar)>
+</Provider>"
+`;

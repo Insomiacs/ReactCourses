@@ -11,7 +11,7 @@ import styles from './style.scss'
 class MoviesContent extends Component {
 
     componentDidMount() {
-        this.props.loadMovies()
+        this.props.loadMovies();
     }
 
     render() {
@@ -41,6 +41,7 @@ const mapStateToProps = ({movies, search}) => {
             ...movies,
             items: search.type === 'title' ? titleSearch : genreSearch
         },
+        search,
     }
 };
 
