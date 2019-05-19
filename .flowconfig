@@ -1,0 +1,22 @@
+[ignore]
+.*/node_modules/.*
+.*/src/index\.js
+.*/*/__tests__/.*
+.*/dist/.*
+.*/coverage/.*
+[include]
+
+[libs]
+flow-typed
+
+[untyped]
+.*/node_modules/*
+
+[lints]
+deprecated-utility=off
+
+[options]
+module.name_mapper.extension='css' -> 'empty/object'
+module.name_mapper.extension='scss' -> 'empty/object'
+all=true
+[strict]

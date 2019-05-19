@@ -5,12 +5,12 @@ import logger from 'redux-logger';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import createHistory from 'history/createBrowserHistory';
-import rootReducer from './redux/modules';
+import rootReducer from './redux/reducers';
 
 export const history = createHistory();
 const client = axios.create({
   baseURL: 'http://localhost:9000',
-  responseType: 'json'
+  responseType: 'json',
 });
 const initialState = {};
 const middleware = [thunk, axiosMiddleware(client), routerMiddleware(history), logger];
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
   const devToolsExtension = window.REDUX_DEVTOOLS_EXTENSION;
 
   if (typeof devToolsExtension === 'function') {
-    enhancers.push(devToolsExtension())
+    enhancers.push(devToolsExtension());
   }
 }
 
@@ -29,7 +29,7 @@ const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
 const store = createStore(
   rootReducer(history),
   initialState,
-  composedEnhancers
+  composedEnhancers,
 );
 
 export default store;

@@ -2,17 +2,26 @@ import React from 'react';
 import ClassNames from 'classnames';
 import styles from './styles.scss';
 
-const Button = ({children, type, size, onClick}) => {
+type buttonProps = {
+  type: string,
+  size: string,
+  className: string,
+  children: React.Node,
+  onClick: function
+};
+
+const Button = (props: buttonProps) => {
     return (
         <button
             className={ClassNames({
                 [styles.button]: true,
-                [styles.buttonDanger]: type === 'danger',
-                [styles.buttonLarge]: size
+                [styles.buttonDanger]: props.type === 'danger',
+                [styles.buttonLarge]: props.size,
+                [props.className]: true
             })}
-            onClick={onClick}
+            onClick={props.onClick}
         >
-            { children }
+            { props.children }
         </button>
     );
 };

@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
 
-class ErrorBoundary extends Component {
+type Props = {
+    children?: React.Node
+};
+
+type State = {
+    error: string
+}
+
+class ErrorBoundary extends Component<Props, State> {
     state = {
         error: null,
     };
 
-    componentDidCatch(error, errorInfo) {
+    componentDidCatch(error) {
         this.setState(() => ({
             error
         }))

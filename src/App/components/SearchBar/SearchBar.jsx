@@ -1,30 +1,57 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { updateSearchQuery, selectSearchType } from '../../../redux/actions/search';
 import { updateMovies } from '../../../redux/actions/movies';
-
-import { spy } from 'sinon';
 
 import Input from '../../../SharedComponents/Input';
 import Button from '../../../SharedComponents/Button';
 
 import styles from './style.scss';
 
-class SearchBar  extends Component {
+class SearchBar  extends PureComponent {
 
   state = {
     searchValue: ''
   };
 
-  handleClick = () => {
-    this.props.updateSearchQuery(this.state.searchValue)
+  static getDerivedStateFromProps(nextProps){
+    const { match: { params }, search } = nextProps;
+    if(params.query && params.query !== search.searchQuery) {
+      nextProps.updateSearchQuery(params.query);
+      return {
+        searchValue: params.query
+      }
+    }
+    return null;
+  }
+
+  changeSearchValue = (event) => {
+    this.setState({
+      searchValue: event.target.value
+    });
   };
 
-  changeSearchValue = (searchValue) => {
-    this.setState({
-      searchValue
-    })
+  handleSubmitSearch = () => {
+    this.updateMovies();
+  };
+
+  submitSearchOnEnter = (event) => {
+    if(event.keyCode === 13) {
+      this.updateMovies();
+    }
+  };
+
+  updateMovies = () => {
+    const { history } = this.props;
+    const { searchValue } = this.state;
+    if (!searchValue) {
+      history.push(`/`);
+      this.props.updateSearchQuery('');
+    } else {
+      history.push(`/search/${searchValue}`);
+    }
   };
 
   changeSearchType = (value) => () => {
@@ -38,6 +65,8 @@ class SearchBar  extends Component {
         <span className={styles.searchTitle}>FIND YOUR MOVIES</span>
         <Input
           onChange={this.changeSearchValue}
+          submitSearchOnEnter={this.submitSearchOnEnter}
+          value={this.state.searchValue}
         />
         <div className={styles.searchButtons}>
           <div className={styles.searchCriteria}>
@@ -60,7 +89,7 @@ class SearchBar  extends Component {
           <Button
             type="danger"
             size="large"
-            onClick={this.handleClick}
+            onClick={this.handleSubmitSearch}
           >
             Search
           </Button>
@@ -80,4 +109,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   selectSearchType,
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));
